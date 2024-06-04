@@ -1,7 +1,7 @@
-
 import 'package:applicationpef/listchat.dart';
-import 'package:applicationpef/widgets/post.dart';
 import 'package:flutter/material.dart';
+import 'package:applicationpef/widgets/post.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,6 +11,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  late String _username;
+  @override
+  void initState() {
+    super.initState();
+    _loadUsername();
+  }
+  Future<void> _loadUsername() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  setState(() {
+    _username = prefs.getString('username') ?? '';
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +35,14 @@ class _HomeState extends State<Home> {
               children: [
                 Row(
                   children: [
-                    const Text(
-                      "Hello, Meryam",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 27,
-                        fontFamily: 'AutofillHints', // Corrected font family name
-                      ),
-                    ),
+                    Text(
+             "Hello, $_username",
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 27,
+              fontFamily: 'AutofillHints',
+                  ),
+                  ),
                     const SizedBox(
                       width: 5,
                     ),

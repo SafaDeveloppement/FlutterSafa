@@ -86,7 +86,7 @@ class _profilState extends State<profil> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 231, 226, 226),
+                    backgroundColor: const Color.fromARGB(255, 231, 226, 226),
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
                     ),
@@ -307,7 +307,7 @@ class _profilState extends State<profil> {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              primary: const Color.fromARGB(255, 231, 226, 226),
+                              backgroundColor: const Color.fromARGB(255, 231, 226, 226),
                               shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.zero,
                               ),

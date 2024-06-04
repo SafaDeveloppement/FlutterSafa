@@ -31,7 +31,7 @@ class starting2 extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 300,
+                  height: 400,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -46,7 +46,7 @@ class starting2 extends StatelessWidget {
                             );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
+                        backgroundColor: Color.fromARGB(255, 0, 0, 0),
                       ),
                       child: const Text(
                         "Sign up!",
@@ -66,7 +66,7 @@ class starting2 extends StatelessWidget {
                             );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 250, 250, 250),
+                        backgroundColor: Color.fromARGB(255, 250, 250, 250),
                       ),
                       child: const Text(
                         "Login",

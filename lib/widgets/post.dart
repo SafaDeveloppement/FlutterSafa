@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Post extends StatelessWidget {
-  final String title, asset, profil ,place,name,date;
+  final String title, asset, profil ,place,name,date;     
   final Function? onTap, onFav;
 
   const Post({

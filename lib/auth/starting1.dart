@@ -66,7 +66,7 @@ class starting1 extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 0, 0, 0),
+                        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                       ),
                       child: const Text(
                         "Sign up!",
@@ -85,7 +85,7 @@ class starting1 extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 250, 250, 250),
+                        backgroundColor: const Color.fromARGB(255, 250, 250, 250),
                       ),
                       child: const Text(
                         "Login",

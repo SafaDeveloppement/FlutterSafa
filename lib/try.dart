@@ -1,89 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';  //Dépendance pour afficher la carte
+import 'package:latlong2/latlong.dart';         // Dépendance pour gérer les coordonnées géographiques
+import 'package:url_launcher/url_launcher.dart';  // Dépendance pour lancer des URLs
 
-class VotrePageActuelle extends StatefulWidget {
-  @override
-  _VotrePageActuelleState createState() => _VotrePageActuelleState();
-}
 
-class _VotrePageActuelleState extends State<VotrePageActuelle> {
-  bool isSwitched = false;
-
+class MapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Votre Page Actuelle"),
+        title: Text('OpenStreetMap'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Switch(
-            value: isSwitched,
-            activeColor: Color(0xFF9BAB7C),
-            onChanged: (value) {
-              setState(() {
-                isSwitched = value;
-              });
-            },
+      body: buildMap(context),
+    );
+  }
+
+@override
+Widget buildMap(BuildContext context) {
+  return FlutterMap(
+    options: MapOptions(
+      initialCenter: LatLng(51.509364, -0.128928),
+      initialZoom: 9.2,
+    ),
+    children: [
+      TileLayer(
+        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        userAgentPackageName: 'com.example.app',
+      ),
+      RichAttributionWidget(
+        attributions: [
+          TextSourceAttribution(
+            'OpenStreetMap contributors',
+            onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
           ),
-          if (isSwitched)
-            Row(
-              children: [
-                Text("Length of stay "),
-                SizedBox(width: 45),
-                CustomCheckbox(),
-                SizedBox(width: 30),
-              ],
-            ),
         ],
       ),
-    );
-  }
-}
-
-class CustomCheckbox extends StatefulWidget {
-  @override
-  _CustomCheckboxState createState() => _CustomCheckboxState();
-}
-
-class _CustomCheckboxState extends State<CustomCheckbox> {
-  bool isChecked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          isChecked = !isChecked;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black,
-            width: 2.0,
-          ),
-          borderRadius: BorderRadius.circular(4.0),
-          color: isChecked ? Colors.black : Colors.white,
-        ),
-        width: 24.0,
-        height: 24.0,
-        child: isChecked
-            ? Icon(
-                Icons.check,
-                size: 18.0,
-                color: Colors.white,
-              )
-            : null,
-      ),
-    );
-  }
-}
-
-void main() {
-  runApp(
-    MaterialApp(
-      home: VotrePageActuelle(),
-    ),
+    ],
   );
+}
 }

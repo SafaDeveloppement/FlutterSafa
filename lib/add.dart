@@ -57,7 +57,7 @@ class _addState extends State<add> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 231, 226, 226),
+                    backgroundColor: const Color.fromARGB(255, 231, 226, 226),
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.zero,
                     ),

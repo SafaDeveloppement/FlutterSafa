@@ -19,27 +19,33 @@ class _PagesState extends State<Pages> {
     return Scaffold(
       body: Stack(
         children: [
-          SizedBox(
-            height: 850,
-            child: PageView(
-              controller: _controller,
-              children: const [
-                starting1(),
-                starting2(),
-                starting3(),
-              ],
-            ),
+          // PageView containing background images
+          PageView(
+            controller: _controller,
+            children: const [
+              starting1(),
+              starting2(),
+              starting3(),
+            ],
           ),
-          Positioned(
-            bottom: 20.0, // Adjust the position as needed
-            left: 150,
-            right: 0,
-            child: SmoothPageIndicator(
-              controller: _controller,
-              count: 3,
-              effect: WormEffect(
-                activeDotColor: Colors.white
-              ), // You can customize the indicator effect
+
+          // SmoothPageIndicator placed in front of background images
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                effect: const WormEffect(activeDotColor: Colors.white),
+                onDotClicked: (index) {
+                  _controller.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease,
+                  );
+                },
+              ),
             ),
           ),
         ],

@@ -76,4 +76,6 @@ class group extends StatelessWidget {
         ),
     );
   }
+
+  Object? toJson() {}
 }

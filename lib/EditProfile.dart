@@ -78,13 +78,14 @@ class _EDITState extends State<EDIT> {
               ),
                Text(
                 "Country",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, 
+                fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 20,
               ),
               Modif(
-                tailleh: 50,
+                taille: 50,
                 hint: "Tunisia",
               ),
                SizedBox(

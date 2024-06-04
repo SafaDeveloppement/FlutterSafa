@@ -1,9 +1,11 @@
-import 'package:applicationpef/add.dart';
+//import 'package:applicationpef/add.dart';
 import 'package:applicationpef/auth/home.dart';
 import 'package:applicationpef/groups.dart';
 import 'package:applicationpef/hosting.dart';
+import 'package:applicationpef/postadd.dart';
 import 'package:applicationpef/profil.dart';
 import 'package:flutter/material.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 class mainscreen extends StatefulWidget {
   const mainscreen({Key? key}) : super(key: key);
@@ -13,10 +15,15 @@ class mainscreen extends StatefulWidget {
 }
 
 class _mainscreenpageState extends State<mainscreen> {
+  
+
+
+  
+
   final List<Widget> _screens = [
     const Home(), 
     const hosting(),
-    const add(),
+    const YourAddPostScreen(),
     const groups(),
     const profil(),
     
